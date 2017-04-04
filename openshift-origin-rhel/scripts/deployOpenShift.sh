@@ -2,14 +2,14 @@
 
 set -e
 
-SUDOUSER=adminopenshift
-PASSWORD="Admin1234!"
+SUDOUSER=$1
+PASSWORD=$2
 PRIVATEKEY=$3
-MASTER=osmaster
-MASTERPUBLICIPHOSTNAME=openshiftmaster.northeurope.cloudapp.azure.com
-MASTERPUBLICIPADDRESS=52.178.189.162
-NODE=node
-NODECOUNT=3
+MASTER=$4
+MASTERPUBLICIPHOSTNAME=$5
+MASTERPUBLICIPADDRESS=$6
+NODE=$7
+NODECOUNT=$8
 ROUTING=$9
 
 NODELOOP=$((NODECOUNT - 1))
@@ -20,8 +20,8 @@ DOMAIN=$( awk 'NR==2' /etc/resolv.conf | awk '{ print $2 }' )
 
 echo "Generating keys"
 
-# runuser -l $SUDOUSER -c "echo \"$PRIVATEKEY\" > ~/.ssh/id_rsa"
-# runuser -l $SUDOUSER -c "chmod 600 ~/.ssh/id_rsa*"
+runuser -l $SUDOUSER -c "echo \"$PRIVATEKEY\" > ~/.ssh/id_rsa"
+runuser -l $SUDOUSER -c "chmod 600 ~/.ssh/id_rsa*"
 
 echo "Configuring SSH ControlPath to use shorter path name"
 

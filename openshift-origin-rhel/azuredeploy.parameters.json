@@ -32,9 +32,6 @@
 		"adminUsername": {
 			"value": "adminopenshift"
 		},
-		"adminPassword": {
-			"value": "changeme"
-		},
 		"subscriptionId": {
 			"value": "8a86af40-688b-4697-a4b5-fe4fb97163c2"
 		},

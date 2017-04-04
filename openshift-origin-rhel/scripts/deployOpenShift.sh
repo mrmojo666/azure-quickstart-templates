@@ -68,7 +68,7 @@ $MASTER.$DOMAIN openshift_node_labels="{'region': 'master', 'zone': 'default'}"
 $NODE-[0:${NODELOOP}].$DOMAIN openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
 EOF
 
-runuser -l $SUDOUSER -c "git clone https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible"
+runuser -l $SUDOUSER -c "git clone -b release-1.5 https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible"
 
 echo "Executing Ansible playbook"
 

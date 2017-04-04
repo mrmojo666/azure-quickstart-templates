@@ -624,7 +624,7 @@
 					"fileUris": [
 						"[variables('masterPrepScriptUrl')]"
 					],
-					"commandToExecute": "[concat('sh ', variables('masterPrepScriptFileName'), ' ', parameters('adminUsername'))]"
+					"commandToExecute": "[concat('sh ', variables('masterPrepScriptFileName'), ' ', parameters('adminUsername'),' ', parameters('adminPassword'),' ', parameters('sshPrivateKey'),' ', parameters('openshiftMasterHostname'),' ', parameters('openshiftMasterPublicIpFqdn'),' ', parameters('openshiftMasterPublicIpAddress'),' ', parameters('nodePrefix'),' ', parameters('nodeInstanceCount') )]"
 				}
 			}
 		}, {

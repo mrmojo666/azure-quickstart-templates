@@ -20,8 +20,8 @@ DOMAIN=$( awk 'NR==2' /etc/resolv.conf | awk '{ print $2 }' )
 
 echo "Generating keys"
 
-runuser -l $SUDOUSER -c "echo \"$PRIVATEKEY\" > ~/.ssh/id_rsa"
-runuser -l $SUDOUSER -c "chmod 600 ~/.ssh/id_rsa*"
+runuser -l $SUDOUSER -c "echo \"$PRIVATEKEY\" > home/$SUDOUSER/.ssh/id_rsa"
+runuser -l $SUDOUSER -c "chmod 600 home/$SUDOUSER/.ssh/id_rsa*"
 
 echo "Configuring SSH ControlPath to use shorter path name"
 

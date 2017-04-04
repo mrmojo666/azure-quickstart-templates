@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -e
 
 SUDOUSER=$1
 PASSWORD="$2"

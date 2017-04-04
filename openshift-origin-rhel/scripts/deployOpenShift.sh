@@ -45,8 +45,8 @@ ansible_ssh_user=$SUDOUSER
 ansible_become=yes
 openshift_install_examples=true
 deployment_type=origin
-openshift_release=v1.4
-openshift_image_tag=v1.4.0
+openshift_release=v1.5
+openshift_image_tag=v1.5.0
 docker_udev_workaround=True
 openshift_use_dnsmasq=false
 openshift_override_hostname_check=true
@@ -68,7 +68,7 @@ $MASTER.$DOMAIN openshift_node_labels="{'region': 'master', 'zone': 'default'}"
 $NODE-[0:${NODELOOP}].$DOMAIN openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
 EOF
 
-runuser -l $SUDOUSER -c "git clone -b release-1.5 https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible"
+runuser -l $SUDOUSER -c "git clone -b release-1.5 --single-branch https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible"
 
 echo "Executing Ansible playbook"
 

@@ -1,4 +1,4 @@
-﻿{
+{
 	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
@@ -6,55 +6,46 @@
 			"value": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/openshift-origin-rhel/"
 		},
 		"masterVmSize": {
-			"value": "Standard_DS3_v2"
+			"value": "Standard_DS11_v2"
 		},
 		"nodeVmSize": {
-			"value": "Standard_DS3_v2"
+			"value": "Standard_DS11_v2"
 		},
 		"osImage": {
 			"value": "centos"
 		},
 		"openshiftMasterHostname": {
-			"value": "changeme"
+			"value": "osmaster"
 		},
 		"openshiftMasterPublicIpDnsLabelPrefix": {
-			"value": "GEN-UNIQUE"
+			"value": "openshiftmaster"
 		},
 		"nodeLbPublicIpDnsLabelPrefix": {
-			"value": "GEN-UNIQUE"
+			"value": "openshiftbalancer"
 		},
 		"nodePrefix": {
-			"value": "changeme"
+			"value": "node"
 		},
 		"nodeInstanceCount": {
-			"value": 1
+			"value": 3
 		},
 		"adminUsername": {
-			"value": "changeme"
-		},
-		"adminPassword": {
-			"value": "changeme"
-		},
-		"sshPublicKey": {
-			"value": "GEN-SSH-PUB-KEY"
+			"value": "adminopenshift"
 		},
 		"subscriptionId": {
-			"value": "changeme"
+			"value": "8a86af40-688b-4697-a4b5-fe4fb97163c2"
 		},
 		"keyVaultResourceGroup": {
-			"value": "changeme"
+			"value": "RGKeyVault"
 		},
 		"keyVaultName": {
-			"value": "changeme"
-		},
-		"keyVaultSecret": {
-			"value": "changeme"
+			"value": "OpenShiftorigin"
 		},
 		"defaultSubDomainType": {
 			"value": "xipio"
 		},
 		"defaultSubDomain": {
-			"value": "changeme"
+			"value": "pippo"
 		}
 	}
 }

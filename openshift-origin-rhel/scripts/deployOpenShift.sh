@@ -25,9 +25,11 @@ runuser -l $SUDOUSER -c "chmod 600 /home/$SUDOUSER/.ssh/id_rsa*"
 
 echo "Configuring SSH ControlPath to use shorter path name"
 
-sed -i -e "s/^# control_path = %(directory)s\/%%h-%%r/control_path = %(directory)s\/%%h-%%r/" /etc/ansible/ansible.cfg
+sed -i -e "s/^# control_path = %(directory)s\/%%h-%%r/control_path = .\/%%h-%%r/" /etc/ansible/ansible.cfg
 sed -i -e "s/^#host_key_checking = False/host_key_checking = False/" /etc/ansible/ansible.cfg
 sed -i -e "s/^#pty=False/pty=False/" /etc/ansible/ansible.cfg
+
+
 
 # Create Ansible Hosts File
 
@@ -70,9 +72,10 @@ $NODE-[0:${NODELOOP}].$DOMAIN openshift_node_labels="{'region': 'infra', 'zone':
 [local]
 127.0.0.1   ansible_connection=local
 
+
 EOF
 
-runuser -l $SUDOUSER -c "git clone  --single-branch https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible"
+runuser -l $SUDOUSER -c "git clone  https://github.com/openshift/openshift-ansible /home/$SUDOUSER/openshift-ansible"
 
 echo "Executing Ansible playbook"
 
